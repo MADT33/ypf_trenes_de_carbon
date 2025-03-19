@@ -1,0 +1,97 @@
+<mvc:View controllerName="ypf.tkcargatrenescarbon.controller.View"
+ xmlns="sap.ui.table"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:m="sap.m"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+        height="100%">
+    <m:Page
+            showHeader="false"
+            enableScrolling="false">
+        <m:content>
+            <TreeTable
+                    id="TreeTableBasic"
+                    rows="{ path:'AppJsonModel>/Log' }"
+                    selectionMode="MultiToggle"                    
+                    enableSelectAll="true"                    
+                    ariaLabelledBy="title">
+                <extension>
+                    <m:OverflowToolbar style="Clear">
+                        <m:Title id="title" text="{i18n>titletk}"/>
+                        <m:ToolbarSpacer/>
+						<u:FileUploader id="fileUploader" sameFilenameAllowed="true" style="Emphasized" name="myFileUpload" buttonOnly="true" change="onUploadFile" buttonText="{i18n>upload}"
+					    />
+                         <m:Button id="BTN2" text="{i18n>Confirmar}" enabled="false" type="Emphasized" icon="sap-icon://accept" press="onConfirmar"/>                      
+
+                    </m:OverflowToolbar>
+                </extension>
+                <columns>
+                <Column width="8rem">
+                        <m:Label text="{i18n>Status}"/>
+                        <template>                          
+                              
+                               <m:ObjectStatus text="{AppJsonModel>Status}" state="{path:'AppJsonModel>Status' , formatter: '.formatter.formatterColor'}"/>
+                        </template>
+                    </Column>
+                    <Column width="9rem"> 
+                        <m:Label text="{i18n>NumExtFich}"/>
+                        <template>
+                            <m:Text text="{AppJsonModel>NumExtFich}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column width="7rem"  >
+                        <m:Label text="{i18n>Nºdoc.planif}"/>
+                        <template>
+                             <m:Text text="{AppJsonModel>NumDocPlanif}" wrapping="false" />
+                        </template>
+                    </Column>	
+					 <Column width="7rem" >
+                        <m:Label text="{i18n>PosClvDocPl}"/>
+                        <template>
+                             <m:Text text="{AppJsonModel>PosClvDocPl}" wrapping="false" />
+                        </template>
+                    </Column>	
+
+					<Column width="7rem">
+                        <m:Label text="{i18n>Cantidad_Neta}"/>
+                        <template>
+                             <m:Text text="{AppJsonModel>CantidadNeta}" wrapping="false" />
+                        </template>
+                    </Column>								 
+					
+					 <Column width="6rem" >
+                        <m:Label text="{i18n>Fecha_Final}"/>
+                        <template>
+                             <m:Text text="{AppJsonModel>FechaFinal}" wrapping="false" />
+                        </template>
+                    </Column>
+
+					<Column width="9rem" >
+                        <m:Label text="{i18n>Patente_del_Vagon}"/>
+                        <template>
+                             <m:Text  text="{AppJsonModel>PatenteVagon}" wrapping="false" />
+                        </template>
+                    </Column>			
+					
+
+					<Column width="7rem">
+                        <m:Label text="{i18n>Tk}"/>
+                        <template>
+                           
+                        <m:ObjectNumber  number="{AppJsonModel>Ticket}"/>
+                        </template>
+                    </Column>
+					
+					<Column >
+                        <m:Label text="{i18n>Mensaje}"/>
+                        <template>
+                             <m:Text text="{AppJsonModel>Mensaje}" wrapping="false" />
+                        </template>
+                    </Column>
+
+                </columns>
+            </TreeTable>
+        </m:content>
+    </m:Page>
+
+</mvc:View>

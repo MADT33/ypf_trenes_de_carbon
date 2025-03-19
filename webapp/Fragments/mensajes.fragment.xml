@@ -1,0 +1,42 @@
+
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog
+      id="helloDialog"
+      title="{AppJsonModel>Corfirmacion}">
+      <Table id="producttable" items="{LogModel>/}">
+		 			<columns>
+			<Column
+				width="14em">
+				<Text text="{i18n>Ticket}" />
+			</Column>
+			<Column			
+				demandPopin="true">
+				<Text text="{i18n>Status}"/>
+			</Column>
+            <Column			
+				demandPopin="true">
+				<Text text="{i18n>NumExtFich}"/>
+			</Column>
+            <Column			
+				demandPopin="true">
+				<Text text="{i18n>Patente_Vagon}"/>
+			</Column>
+			</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectNumber number="{LogModel>Ticket}"/>
+									<ObjectStatus text="{LogModel>Status}" state="{path:'LogModel>Status' , formatter: '.formatter.formatterColorTk'}"/>									
+                                    <Text text="{LogModel>NumExtFich}"/>
+                                    <Text text="{LogModel>PatenteVagon}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+                    <HBox  id="HB"  alignContent="End" justifyContent="End">
+                    <Button text="{i18n>Cerrar}" type="Emphasized" press="onCloseDialog"></Button>
+                    </HBox>
+                    </Dialog>
+</core:FragmentDefinition>
